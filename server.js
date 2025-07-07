@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 //cors to all
@@ -144,12 +144,12 @@ const createHTMLTemplate = (data) => {
         <div class="separator"></div>
         
         <div class="suggestions-section">
-            <div class="field-label">Suggestions</div>
-            <div class="field-value">${data.suggestion}</div>
+            <div class="field-label">Additional Suggestions</div>
+            <div class="field-value">${data.additional}</div>
         </div>
         
         <div class="timestamp">
-            Submitted on ${new Date().toLocaleDateString()}
+            Submitted on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
         
         </div>
     </body>
