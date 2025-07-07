@@ -144,13 +144,12 @@ const createHTMLTemplate = (data) => {
         <div class="separator"></div>
         
         <div class="suggestions-section">
-            <div class="field-label">Additional Suggestions</div>
-            <div class="field-value">${data.additional}</div>
+            <div class="field-label">Suggestions</div>
+            <div class="field-value">${data.suggestion}</div>
         </div>
         
         <div class="timestamp">
-            Submitted on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
-        
+         Submitted on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
         </div>
     </body>
     </html>
@@ -180,14 +179,14 @@ ${data.additional}
 };
 
 app.post('/send', (req, res) => {
-    const { name, organization, phone, email, subject, additional } = req.body;
+    const { name, organization, phone, email, subject, additional,suggestions } = req.body;
 
     const mailOptions = {
         from: `"Contact Form" <${email}>`,
         to: 'nominations@eci.co.in',
         subject: `New submission from https://eci.co.in/`,
-        text: createTextTemplate({ name, organization, phone, email, subject, additional }),
-        html: createHTMLTemplate({ name, organization, phone, email, subject, additional })
+        text: createTextTemplate({ name, organization, phone, email, subject, additional,suggestions }),
+        html: createHTMLTemplate({ name, organization, phone, email, subject, additional,suggestions })
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
