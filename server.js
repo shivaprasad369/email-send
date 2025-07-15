@@ -319,7 +319,7 @@ app.post('/send', (req, res) => {
 
     const mailOptions = {
         from: `"Contact Form" <${email}>`,
-        to: 'nominations@eci.co.in',
+        to: 'info.eci@mails.essae.in',
         subject: `New submission from https://eci.co.in/`,
         text: createTextTemplate({ name, organization, phone, email, subject, additional }),
         html: createHTMLTemplate({ name, organization, phone, email, subject, additional })
@@ -346,7 +346,7 @@ app.post('/event',(req,res)=>{
 
     const mailOptions = {
         from: `"Event registration Form" <${email}>`,
-        to: 'nominations@eci.co.in',
+        to: 'info.eci@mails.essae.in',
         subject: `New submission from https://eci.co.in/`,
         text: createTextEventTemplate({ organization,person, name,qualification, phone, email }),
         html: createHTMLEventTemplate({ organization,person, name,qualification, phone, email })
